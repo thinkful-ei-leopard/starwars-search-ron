@@ -1,7 +1,7 @@
 import React from 'react';
 import Form from './components/Form';
 import Results from './components/Results';
-import ApiContext from '../ApiContext';
+import ApiContext from './ApiContext';
 import ErrorPage from './ErrorPage';
 import './App.css';
 import config from './config';
@@ -41,8 +41,8 @@ class App extends React.Component {
     characters: [],
   };
 
-  handleAddCharacter = () => {
-
+  handleAddCharacter = (character) => {
+    console.log(character);
   }
 
   componentDidMount() {
@@ -53,7 +53,7 @@ class App extends React.Component {
     const contextValue = {
       addCharacter: this.addCharacter,
     };
-    
+
     return (
       <ApiContext.Provider value={contextValue}>
         <div className="App">
