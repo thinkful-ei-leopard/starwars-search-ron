@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import Results from './Results';
+import config from '../config';
+import ValidationError from './ValidationError';
 
 export default class Form extends Component {
 
@@ -14,11 +15,6 @@ export default class Form extends Component {
         };
     }
 
-
-    componentDidMount() {
-
-    }
-
     validateSearchText(){
     // this removes any whitespace from value and makes sure the value isn't an empty string
         const userInput = this.state.inputText.value.trim();
@@ -29,16 +25,35 @@ export default class Form extends Component {
         }
     }
 
-    addCharacter(){
-
+    updateCharacter(searchTerm){
+        // Whenever the user types anything into the input, we update the state! each letter at a time!
+        // When the user types ANYTHING we set the value of touched to "true" from "false" this way we know
+        // when to correctly render our ValidationError
+        this.setState({
+            inputText: {value: searchTerm, touched: true}
+        });
     }
 
     handleSubmit(event){
         event.preventDefault();
+        // on User Submit, get the input from this.state.inputText.value
+        // use that to make a GET request
+        // use response to update the main App State (an array of characters)
 
+        // config.API_ENDPOINT =https://swapi.co/api/
+        // path = people/
+        // query_string = ?search=
+        // Users_input = STRING
+        // all together: 
+        // config.API_ENDPOINT + path + query_string + Users_input === https://swapi.co/api/people/?search=r2
+        
+        // const data = {}; <-- this isnt needed for the simple get request, but will be needed if I do the bonus
+        fetch(`${config.API}`)
+        
     }
     
     render() {
+        const textError = this.validateSearchText();
         return(
             <form className="Form__container" onSubmit={e => this.handleSubmit(e)}>
                 <h2>Star Wars API!</h2>  
@@ -50,10 +65,10 @@ export default class Form extends Component {
                     name="search-character-name" 
                     id="search-character-name"
                     // Each time the user types anything into input, we update the state. This allows real-time error messages (ie before submit)
-                    onChange={e => this.addCharacter(e.target.value)}
+                    onChange={e => this.updateCharacter(e.target.value)}
                     required/>
                 {/* Conditional rendering depending on whether the user has changed the input or not */}
-                {/* {this.state.name.touched && (<ValidationError message={nameError} />)} */}
+                {this.state.inputText.touched && (<ValidationError message={textError} />)}
                 </div>
 
         
@@ -79,9 +94,3 @@ export default class Form extends Component {
   // send API request to that URL with the string at the end (where it says r2)
   // update state -> it triggers render -> values load in DOM
 
-  // config.API_ENDPOINT =https://swapi.co/api/
-  // path = people/
-  // query_string = ?search=
-  // Users_input = STRING
-  // all together: 
-  // config.API_ENDPOINT + path + query_string + Users_input === https://swapi.co/api/people/?search=r2
