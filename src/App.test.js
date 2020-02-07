@@ -1,9 +1,16 @@
-import React from 'react';
-import { render } from '@testing-library/react';
-import App from './App';
+import React from 'react';
+import renderer from 'react-test-renderer';
+import ReactDOM from 'react-dom';
+import App from './App';
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+describe('<App />', () => {
+    it('renders without crashing', () => {
+        const div = document.createElement('div');
+        ReactDOM.render(<App />, div);
+        ReactDOM.unmountComponentAtNode(div);
+    });
+    it('renders this UI as expected', () => {
+        const tree= renderer.create(<App />).toJSON();
+        expect(tree).toMatchSnapshot();
+    });    
 });
