@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import config from '../config';
 import ValidationError from './ValidationError';
+import ApiContext from '../ApiContext';
 
 export default class Form extends Component {
 
@@ -14,6 +15,8 @@ export default class Form extends Component {
             }
         };
     }
+
+    static contextType = ApiContext;
 
     validateSearchText(){
     // this removes any whitespace from value and makes sure the value isn't an empty string
@@ -43,12 +46,24 @@ export default class Form extends Component {
         // config.API_ENDPOINT =https://swapi.co/api/
         // path = people/
         // query_string = ?search=
-        // Users_input = STRING
+        // Users_input = STRING (this.state.inputText.value)
         // all together: 
         // config.API_ENDPOINT + path + query_string + Users_input === https://swapi.co/api/people/?search=r2
-        
+
+        const path = 'people'; // <-- this needs to be changing if we do bonus
         // const data = {}; <-- this isnt needed for the simple get request, but will be needed if I do the bonus
-        fetch(`${config.API}`)
+        fetch(`${config.API_ENDPOINT}${path}?search=${this.state.inputText.value}`)
+            .then(resp => {
+                if(!resp.ok) {
+                    return resp.json().then(e => Promise.reject(e));
+                }
+                return resp.json();
+            })
+            .then(resp => {
+                console.log(resp.results);
+                this.context.addCharacter(resp.results);
+            })
+            .catch(error => console.log(error));
         
     }
     

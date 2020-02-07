@@ -41,8 +41,8 @@ class App extends React.Component {
     characters: [],
   };
 
-  handleAddCharacter = (character) => {
-    console.log(character);
+  handleAddCharacters = (characters) => {
+    console.log(`App received: ${characters}`);
   }
 
   componentDidMount() {
@@ -51,7 +51,7 @@ class App extends React.Component {
 
   render() {
     const contextValue = {
-      addCharacter: this.addCharacter,
+      addCharacter: this.handleAddCharacters,
     };
 
     return (
