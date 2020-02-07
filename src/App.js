@@ -1,6 +1,7 @@
 import React from 'react';
 import Form from './components/Form';
 import Results from './components/Results';
+import ApiContext from '../ApiContext';
 import ErrorPage from './ErrorPage';
 import './App.css';
 import config from './config';
@@ -36,23 +37,35 @@ class App extends React.Component {
   // all together: 
   // config.API_ENDPOINT + path + query_string + Users_input === https://swapi.co/api/people/?search=r2
 
-  state = {};
+  state = {
+    characters: [],
+  };
 
-  componentDidMount() {
+  handleAddCharacter = () => {
 
   }
 
+  componentDidMount() {
+  
+  }
+
   render() {
+    const contextValue = {
+      addCharacter: this.addCharacter,
+    };
+    
     return (
-      <div className="App">
-        <h1>Test</h1>
-        <ErrorPage>
-          <Form />
-        </ErrorPage>
-        <ErrorPage>
-          <Results />
-        </ErrorPage>
-      </div>
+      <ApiContext.Provider value={contextValue}>
+        <div className="App">
+          <h1>Test</h1>
+          <ErrorPage>
+            <Form />
+          </ErrorPage>
+          <ErrorPage>
+            <Results />
+          </ErrorPage>
+        </div>
+      </ApiContext.Provider>
     );
   }
 }
