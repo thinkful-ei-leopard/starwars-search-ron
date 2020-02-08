@@ -31,6 +31,7 @@ class App extends React.Component {
 
   state = {
     characters: [],
+    loading: false // Extra state - tells us whether we are loading
   };
 
   handleAddCharacters = (characters) => {
@@ -47,6 +48,7 @@ class App extends React.Component {
   render() {
     const contextValue = {
       addCharacter: this.handleAddCharacters,
+      characters: this.state.characters
     };
 
     return (
@@ -57,6 +59,7 @@ class App extends React.Component {
             <Form />
           </ErrorPage>
           <ErrorPage>
+            {/* {might need conditional rendering here, if characters is empty && Results} */}
             <Results />
           </ErrorPage>
         </div>
