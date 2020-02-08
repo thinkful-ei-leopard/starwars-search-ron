@@ -54,7 +54,7 @@ class App extends React.Component {
     return (
       <ApiContext.Provider value={contextValue}>
         <div className="App">
-          <h1>Test</h1>
+          <h1>Star Wars Search App!</h1>
           <ErrorPage>
             <Form />
           </ErrorPage>

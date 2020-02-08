@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import config from '../config';
 import ValidationError from './ValidationError';
 import ApiContext from '../ApiContext';
+import './Form.css';
 
 export default class Form extends Component {
 
@@ -71,7 +72,6 @@ export default class Form extends Component {
         const textError = this.validateSearchText();
         return(
             <form className="Form__container" onSubmit={e => this.handleSubmit(e)}>
-                <h2>Star Wars API!</h2>  
                 <div className="form-group">
                 <label htmlFor="search-character-name">Search characters name: </label>
                 <input 

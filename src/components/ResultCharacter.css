@@ -1,3 +1,11 @@
 .ResultCharacter__list {
-    background-color: aquamarine;
+    background: black;
+}
+
+.result_name {
+    color: #f7ec12;
+}
+
+li {
+    list-style-type: none;
 }

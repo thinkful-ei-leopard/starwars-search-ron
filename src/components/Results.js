@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import ResultCharacter from './ResultCharacter';
 import ApiContext from '../ApiContext';
+import './Results.css';
 
 export default class Results extends Component {
     // gets data from state

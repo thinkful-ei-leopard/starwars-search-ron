@@ -1,4 +1,5 @@
 import React from 'react';
+import './ResultCharacter.css';
 
 export default function ResultCharacter(props) {
     // props:
@@ -10,10 +11,10 @@ export default function ResultCharacter(props) {
 
     return (
         <li className="ResultCharacter__list">
-            <p>{'Name: ' + props.name}</p>
-            <p>{props.gender}</p>
-            <p>{`Hair color: ${props.hairColor}, Eye color: ${props.eyeColor}`}</p>
-            <p>{`Birth year: ${props.birthYear}`}</p>
+            <p className="result_name">{'Name: ' + props.name}</p>
+            <p className="result_name">{props.gender}</p>
+            <p className="result_name">{`Hair color: ${props.hairColor}, Eye color: ${props.eyeColor}`}</p>
+            <p className="result_name">{`Birth year: ${props.birthYear}`}</p>
         </li>
     );
 }
