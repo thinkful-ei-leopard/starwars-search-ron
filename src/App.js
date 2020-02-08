@@ -4,7 +4,6 @@ import Results from './components/Results';
 import ApiContext from './ApiContext';
 import ErrorPage from './ErrorPage';
 import './App.css';
-import config from './config';
 
 // Users should be able to search for a character name
 // App will make an API request to the Star Wars API
@@ -30,19 +29,15 @@ class App extends React.Component {
   // send API request to that URL with the string at the end (where it says r2)
   // update state -> it triggers render -> values load in DOM
 
-  // config.API_ENDPOINT =https://swapi.co/api/
-  // path = people/
-  // query_string = ?search=
-  // Users_input = STRING
-  // all together: 
-  // config.API_ENDPOINT + path + query_string + Users_input === https://swapi.co/api/people/?search=r2
-
   state = {
     characters: [],
   };
 
   handleAddCharacters = (characters) => {
-    console.log(`App received: ${characters}`);
+    this.setState({
+      characters
+    })
+    console.log(this.state.characters);
   }
 
   componentDidMount() {

@@ -60,7 +60,7 @@ export default class Form extends Component {
                 return resp.json();
             })
             .then(resp => {
-                console.log(resp.results);
+                // console.log(resp.results);
                 this.context.addCharacter(resp.results);
             })
             .catch(error => console.log(error));
