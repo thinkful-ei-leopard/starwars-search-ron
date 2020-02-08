@@ -1,21 +1,19 @@
 import React from 'react';
 
 export default function ResultCharacter(props) {
-
-    // destructing the array. blank spaces are skipped values.
-    //const [name, , , hair_color, , eye_color, birth_year, gender, homeworld, ...rest] = props;
-    // console.log(rest);
+    // props:
+    //  props.name
+    //  props.hairColor
+    //  props.eyeColor
+    //  props.birthYear
+    //  props.gender
 
     return (
-        <li>
-            <p>{props.name}</p>
-            {/* <p>{name}
-            {hair_color}
-            {eye_color}
-            {birth_year}
-            {gender}
-            {homeworld}
-            </p> */}
+        <li className="ResultCharacter__list">
+            <p>{'Name: ' + props.name}</p>
+            <p>{props.gender}</p>
+            <p>{`Hair color: ${props.hairColor}, Eye color: ${props.eyeColor}`}</p>
+            <p>{`Birth year: ${props.birthYear}`}</p>
         </li>
     );
 }

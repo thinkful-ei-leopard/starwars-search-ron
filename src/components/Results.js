@@ -17,7 +17,14 @@ export default class Results extends Component {
         return(
             <ul>
                 {this.context.characters.map((result, idx) => {
-                    return <ResultCharacter key={idx} name={result.name}/>
+                    return <ResultCharacter 
+                                key={idx} 
+                                name={result.name}
+                                hairColor={result.hair_color}
+                                eyeColor={result.eye_color}
+                                birthYear={result.birth_year}
+                                gender={result.gender}
+                                />
                 })}
             </ul>
         );
