@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App /> renders this UI as expected 1`] = `
+<div
+  className="App"
+>
+  <h1>
+    Star Wars Search App!
+  </h1>
+  <form
+    className="Form__container"
+    onSubmit={[Function]}
+  >
+    <div
+      className="form-group"
+    >
+      <label
+        htmlFor="search-character-name"
+      >
+        Search characters name: 
+      </label>
+      <input
+        className="Form__control"
+        id="search-character-name"
+        name="search-character-name"
+        onChange={[Function]}
+        required={true}
+        type="text"
+      />
+    </div>
+    <div
+      className="Form__button__group"
+    >
+      <button
+        className="Form__button"
+        disabled="Please enter search term"
+        type="submit"
+      >
+        Save
+      </button>
+    </div>
+  </form>
+  <ul />
+</div>
+`;

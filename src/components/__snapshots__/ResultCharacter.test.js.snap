@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ResultCharacter /> renders this UI as expected 1`] = `
+<li
+  className="ResultCharacter__list"
+>
+  <p
+    className="result_name"
+  >
+    Name: undefined
+  </p>
+  <p
+    className="result_name"
+  />
+  <p
+    className="result_name"
+  >
+    Hair color: undefined, Eye color: undefined
+  </p>
+  <p
+    className="result_name"
+  >
+    Birth year: undefined
+  </p>
+</li>
+`;
