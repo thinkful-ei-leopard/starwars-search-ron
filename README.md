@@ -2,6 +2,13 @@
 
 Author: Ron Martin
 
+## TODO
+ * Get Star Wars like font
+ * Change color of "a long time ago" to aquamarine
+ * Set an interval that shows "A long time ago" for 2-3 seconds before showing the rest of the website
+ * Finish implementing the loading icon
+ * Allow searches for more than just people via a select element
+
 ## Requirements
 To complete the exercise you need to:
 

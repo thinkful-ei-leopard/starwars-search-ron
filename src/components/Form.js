@@ -93,7 +93,7 @@ export default class Form extends Component {
                         className="Form__button"
                         // if anything triggers our validation method, the button gets disabled
                         disabled={this.validateSearchText()}>
-                        Save
+                        Search
                     </button>
                 </div>
                 

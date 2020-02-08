@@ -7,6 +7,9 @@ exports[`<App /> renders this UI as expected 1`] = `
   <h1>
     Star Wars Search App!
   </h1>
+  <h3>
+    A long time ago, in an API far, far away...
+  </h3>
   <form
     className="Form__container"
     onSubmit={[Function]}
@@ -36,10 +39,12 @@ exports[`<App /> renders this UI as expected 1`] = `
         disabled="Please enter search term"
         type="submit"
       >
-        Save
+        Search
       </button>
     </div>
   </form>
-  <ul />
+  <ul
+    className="Results__container"
+  />
 </div>
 `;

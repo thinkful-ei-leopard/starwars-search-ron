@@ -30,7 +30,7 @@ exports[`<Form /> renders this UI as expected 1`] = `
       disabled="Please enter search term"
       type="submit"
     >
-      Save
+      Search
     </button>
   </div>
 </form>

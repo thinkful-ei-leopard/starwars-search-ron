@@ -42,7 +42,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-  
+    
   }
 
   render() {
@@ -55,6 +55,7 @@ class App extends React.Component {
       <ApiContext.Provider value={contextValue}>
         <div className="App">
           <h1>Star Wars Search App!</h1>
+          <h3>A long time ago, in an API far, far away...</h3>
           <ErrorPage>
             <Form />
           </ErrorPage>

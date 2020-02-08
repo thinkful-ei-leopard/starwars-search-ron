@@ -16,7 +16,7 @@ export default class Results extends Component {
     render() {
         console.log(this.context.characters);
         return(
-            <ul>
+            <ul className="Results__container">
                 {this.context.characters.map((result, idx) => {
                     return <ResultCharacter 
                                 key={idx} 
